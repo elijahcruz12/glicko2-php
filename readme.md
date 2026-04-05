@@ -9,9 +9,12 @@ objects, and a stateless calculator. It implements the algorithm as described in
 [official Glicko-2 paper][3] by Professor Mark E. Glickman (revised March 22, 2022), including
 the corrected Illinois algorithm for volatility convergence.
 
+This library is linked to on the [official Glicko-2 page][4] as a reference implementation.
+
 [1]: https://en.wikipedia.org/wiki/Glicko_rating_system
 [2]: https://en.wikipedia.org/wiki/Elo_rating_system
 [3]: https://www.glicko.net/glicko/glicko2.pdf
+[4]: https://www.glicko.net/glicko.html
 
 ## Requirements
 
