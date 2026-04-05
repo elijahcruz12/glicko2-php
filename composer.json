@@ -1,0 +1,33 @@
+{
+    "name": "elijahcruz12/glicko2",
+    "description": "A modern PHP 8.4 implementation of the Glicko-2 rating system",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Elijahcruz12\\Glicko2\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Elijahcruz12\\Glicko2\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Elijah Cruz",
+            "email": "eli@theecgaming.com"
+        }
+    ],
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable"
+}
