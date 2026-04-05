@@ -1,6 +1,6 @@
 {
     "name": "elijahcruz12/glicko2",
-    "description": "A modern PHP 8.4 implementation of the Glicko-2 rating system",
+    "description": "A modern PHP 8.4 implementation of the Glicko-2 rating system, and the only one on Glicko.net",
     "license": "MIT",
     "autoload": {
         "psr-4": {
