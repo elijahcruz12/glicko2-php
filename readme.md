@@ -171,7 +171,7 @@ of a rating period is left to the administrator's discretion.
 
 ## Testing
 
-Tests are written with [PestPHP][4] and cover the full algorithm against the numerical
+Tests are written with [PestPHP][5] and cover the full algorithm against the numerical
 example from the official Glicko-2 paper, including intermediate values for `v`, `Δ`,
 and `σ′`, as well as serialization round-trips.
 ```bash
@@ -179,7 +179,7 @@ composer require --dev pestphp/pest
 ./vendor/bin/pest
 ```
 
-[4]: https://pestphp.com
+[5]: https://pestphp.com
 
 ## License
 

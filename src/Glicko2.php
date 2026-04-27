@@ -4,7 +4,6 @@ namespace Elijahcruz12\Glicko2;
 
 class Glicko2
 {
-    private const float SCALE = 173.7178;
     private const float EPSILON = 0.000001;
 
     /**
@@ -21,8 +20,9 @@ class Glicko2
         // Step 3 — estimated variance
         $v = $this->computeV($player, $results);
 
-        // Step 4 — estimated improvement
-        $delta = $this->computeDelta($player, $results, $v);
+        // Step 4 — estimated improvement (reuse deltaSum to avoid iterating twice)
+        $deltaSum = $this->computeDeltaSum($player, $results);
+        $delta    = $v * $deltaSum;
 
         // Step 5 — new volatility via Illinois algorithm
         $sigmaPrime = $this->computeSigma($player, $delta, $v);
@@ -32,7 +32,7 @@ class Glicko2
 
         // Step 7 — new phi and mu
         $phiPrime = 1.0 / sqrt((1.0 / ($phiStar ** 2)) + (1.0 / $v));
-        $muPrime  = $player->mu + ($phiPrime ** 2) * $this->computeDeltaSum($player, $results);
+        $muPrime  = $player->mu + ($phiPrime ** 2) * $deltaSum;
 
         // Step 8 — convert back and return
         return $this->toRating($muPrime, $phiPrime, $sigmaPrime, $player->tau);
@@ -133,8 +133,8 @@ class Glicko2
     private function toRating(float $mu, float $phi, float $sigma, float $tau): Rating
     {
         return new Rating(
-            rating: self::SCALE * $mu + 1500.0,
-            rd:     self::SCALE * $phi,
+            rating: Rating::SCALE * $mu + 1500.0,
+            rd:     Rating::SCALE * $phi,
             sigma:  $sigma,
             tau:    $tau,
         );
